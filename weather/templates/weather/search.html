@@ -1,0 +1,46 @@
+{% extends "weather/base.html" %}
+
+{% block title %}
+
+    <title>Search Page</title>
+
+{% endblock title %}
+
+{% block content %}
+
+<form method='post' action="{% url 'weather:search' %}">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name='submit' class='btn btn-outline-success mb-2'>Add City</button>
+
+    {% if message %}
+        <div class="{{ message_class }}" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+
+</form>
+
+<a class="btn btn-outline-danger mb-4 mt-2" href="{% url 'weather:delete_everything' %}" role="button">Remove All</a>
+
+{% for weather in weather_data %}
+
+    <div class="card text-center mb-4">
+        <div class="card-header" style="background-color: #B5A6DE">
+            <h2>{{ weather.city }}</h2>
+
+            <a class="btn btn-secondary btn-sm" href="{% url 'weather:delete_city' weather.city %}" role="button">Remove
+            </a>
+
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ weather.temperature }}° F</h5>
+            <p class="card-text">{{ weather.description }}</p>
+        </div>
+        
+    </div>
+
+{% endfor %}
+
+{% endblock content %}

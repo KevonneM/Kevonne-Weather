@@ -1,0 +1,13 @@
+{% extends "weather/base.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">What's the weather like?</h1>
+    <p class="lead">Use this Web Application to find current weather results from any city in the world!</p>
+    <hr class="my-4">
+    <p>Click the button below to go to the search page.</p>
+    <a class="btn btn-success btn-lg" href="{% url 'weather:search' %}" role="button">search</a>
+</div>
+
+{% endblock content %}
