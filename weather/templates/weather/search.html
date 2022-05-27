@@ -27,13 +27,15 @@
 {% for weather in weather_data %}
 
     <div class="card text-center mb-4">
+        
         <div class="card-header" style="background-color: #B5A6DE">
             <h2>{{ weather.city }}</h2>
 
-            <a class="btn btn-secondary btn-sm" href="{% url 'weather:delete_city' weather.city %}" role="button">Remove
+            <a class="btn btn-secondary btn-sm btn-danger" href="{% url 'weather:delete_city' weather.city %}" role="button">Remove
             </a>
 
         </div>
+        <img class="card-img mx-auto" src="http://openweathermap.org/img/w/{{ weather.icon }}.png" style="max-width: 5rem;">
         <div class="card-body">
             <h5 class="card-title">{{ weather.temperature }}° F</h5>
             <p class="card-text">{{ weather.description }}</p>
