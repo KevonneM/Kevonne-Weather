@@ -5,6 +5,11 @@ from .forms import CityForm
 
 from django.conf import settings
 import os
+from decouple import config
+
+import json
+with open('/etc/config.json') as config_file:
+    config = json.load(config_file)
 
 # Create your views here.
 
@@ -14,7 +19,7 @@ def index(request):
 
 def search(request):
     """The search page fpr the weather app."""
-    url = os.environ.get('url')
+    url = config.get("WEATHER_URL")
 
     err_msg = ''
     message = ''
