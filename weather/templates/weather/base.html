@@ -12,7 +12,7 @@
     {% bootstrap_javascript jquery='full' %}
 
 </head>
-<body>
+<body style="background-color: #58326c;">
     
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
 
@@ -32,13 +32,9 @@
     </nav>
 
     <main role="main" class="container">
-        <div class="pb-2 mb-2 border-bottom">
-            {% block page_header %}{% endblock page_header %}
-        </div>
         <div>
             {% block content %}{% endblock content %}
         </div>
-
     </main>
 
 </body>
